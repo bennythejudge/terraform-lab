@@ -22,7 +22,7 @@ terraform {
 
 and by the `tf init` command. The state can be also moved changing the above and re-executing `tf init`
 
-- by trying that I go asked the following:
+- by trying to move my state for one of the services, this is what happened:
 
 ```
 $ tf init
