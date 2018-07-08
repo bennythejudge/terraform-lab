@@ -7,7 +7,7 @@ data "aws_availability_zones" "all" {}
 data "terraform_remote_state" "db" {
   backend = "local"
   config {
-    path = "/Users/neo/workspace/terraform/state-store/terraform.tfstate"
+    path = "/Users/neo/workspace/terraform/state-store/data-storage/mysql/terraform.tfstate"
   }
 }
 
@@ -18,9 +18,11 @@ resource "aws_launch_configuration" "lc" {
 
   user_data = <<-EOF
               #!/bin/bash
-              echo "Hello, World $(hostname)" > index.html
-              echo "${data.terraform_remote_state.db.address}" >> index.html
-              echo "${data.terraform_remote_state.db.port}" >> index.html
+              echo "<html>" > index.html
+              echo "<h1>Hello, World $(hostname)</h1>" >> index.html
+              echo "<br>" >> index.html
+              echo "<h2>${data.terraform_remote_state.db.address}<h2>" >> index.html
+              echo "<h2>${data.terraform_remote_state.db.port}<h2>" >> index.html
               nohup busybox httpd -f -p "${var.server_port}" &
               EOF
 
