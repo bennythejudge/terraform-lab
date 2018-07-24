@@ -1,5 +1,6 @@
 #!/bin/bash
-car > index.html << EOF
+
+cat > index.html << EOF
 <html>
 <h1>Hello, World $(hostname)</h1>
 <br>
