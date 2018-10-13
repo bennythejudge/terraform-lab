@@ -1,5 +1,7 @@
 # terraform lab
 
+[![GuardRails badge](https://badges.production.guardrails.io/bennythejudge/terraform-lab.svg)](https://www.guardrails.io)
+
 - to play Terraform
 
 - while reading "Up and running with Terraform"
